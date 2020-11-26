@@ -20,3 +20,5 @@ $ npm run generate
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 ## https://content.nuxtjs.org/configuration#markdownprismtheme
+
+> Nuxt 改造博客系统大功告成！！！

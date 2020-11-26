@@ -1,24 +1,22 @@
-# blog
+# 夏叶的博客系统前端
 
-## Build Setup
+## 访问地址
+
+夏叶的博客： [http://www.xiaye/top](http://xiaye.top)
+
+## 命令集
 
 ```bash
-# install dependencies
+# 初次 clone 安装依赖
 $ npm install
 
-# serve with hot reload at localhost:3000
+# 开发环境，默认服务端口：3001
 $ npm run dev
 
-# build for production and launch server
+# 生产环境以及启动服务
 $ npm run build
 $ npm run start
 
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
-
-## https://content.nuxtjs.org/configuration#markdownprismtheme
-
-> Nuxt 改造博客系统大功告成！！！

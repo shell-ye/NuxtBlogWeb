@@ -1,0 +1,28 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --hostname 0.0.0.0 --port 3001",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.9.0",
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "axios": "^0.21.0",
+    "cookie-universal-nuxt": "^2.1.4",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.13.2",
+    "mavon-editor": "^2.9.0",
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.14.6",
+    "prism-themes": "^1.5.0",
+    "sass-loader": "^10.0.5",
+    "typed.js": "^2.0.11",
+    "vue-concise-slider": "^3.4.4"
+  },
+  "devDependencies": {}
+}

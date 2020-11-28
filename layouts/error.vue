@@ -12,6 +12,9 @@ export default {
     props: ['error'],
     mounted () {
         console.log(this.error)
+        if ( this.error.statusCode == 404 ) {
+            this.$router.push('/404')
+        }
     }
 }
 </script>

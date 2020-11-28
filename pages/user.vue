@@ -26,6 +26,15 @@
                         <nuxt-link tag="li" to="/user/article/list"><i class="iconfont iconliebiao" v-if="userData.admin == 1"></i>文章列表</nuxt-link>
                         <nuxt-link tag="li" to="/user/article/publish"><i class="iconfont iconbi" v-if="userData.admin == 1"></i>发布文章</nuxt-link>
                     </div>
+                    <nuxt-link tag="li" to="/user/notes" @click.native="notesDropdown = !notesDropdown" :class="{open: notesDropdown}">
+                        <i class="iconfont iconshiwuzhongxin_zhuce" v-if="userData.admin == 1"></i>
+                        笔记管理
+                        <i class="el-icon-caret-bottom"></i>
+                    </nuxt-link>
+                    <div class="webside-panel" :class="{close: !notesDropdown}">
+                        <nuxt-link tag="li" to="/user/notes/list"><i class="iconfont iconliebiao" v-if="userData.admin == 1"></i>笔记列表</nuxt-link>
+                        <nuxt-link tag="li" to="/user/notes/publish"><i class="iconfont iconbi" v-if="userData.admin == 1"></i>发布笔记</nuxt-link>
+                    </div>
                     <nuxt-link tag="li" to="/user/webside" @click.native="websideDropdowm = !websideDropdowm" :class="{open: websideDropdowm}">
                         <i class="iconfont iconwangzhan" v-if="userData.admin == 1"></i>
                         网站管理
@@ -51,7 +60,8 @@ export default {
         return {
             userInfoDropdown: false,
             websideDropdowm: false,
-            articleDropdown: false
+            articleDropdown: false,
+            notesDropdown: false
         }
     },
     mounted () {
@@ -68,18 +78,28 @@ export default {
             if ( this.userInfoDropdown ) {
                 this.websideDropdowm = false
                 this.articleDropdown = false
+                this.notesDropdown = false
             }
         },
         websideDropdowm () {
             if ( this.websideDropdowm ) {
                 this.userInfoDropdown = false
                 this.articleDropdown = false
+                this.notesDropdown = false
             }
         },
         articleDropdown () {
             if ( this.articleDropdown ) {
                 this.userInfoDropdown = false
                 this.websideDropdowm = false
+                this.notesDropdown = false
+            }
+        },
+        notesDropdown () {
+            if ( this.notesDropdown ) {
+                this.userInfoDropdown = false
+                this.websideDropdowm = false
+                this.articleDropdown = false
             }
         }
     },

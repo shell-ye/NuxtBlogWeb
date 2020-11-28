@@ -34,7 +34,7 @@ export default {
 	},
 	methods: {
 		changeShow () {
-			if ( this.$route.path == '/login' || window.location.href.indexOf('/user') != -1 || this.$route.path == '/mobileLogin' || this.$route.path == '/mobileRegister' || this.$route.path == '/404' ) {
+			if ( this.$route.path == '/login' || window.location.href.indexOf('/user') != -1 || this.$route.path == '/mobileLogin' || this.$route.path == '/mobileRegister' || this.$route.path == '/404' || window.location.href.indexOf('/notes/') != -1 ) {
 				this.nav_foot_show = false
 			} else {
 				this.nav_foot_show = true

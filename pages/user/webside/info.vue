@@ -62,6 +62,31 @@
                 </ul>
             </div>
         </UserCard>
+        <!-- 笔记分类 -->
+        <UserCard>
+            <i class="iconfont iconjiaochengx" slot="icon" style="margin-left: 4px;"></i>
+            <div slot="body" class="content">
+                <div class="title">笔记分类</div>
+                <div class="row sentence">
+                    <label>添加分类</label>
+                    <el-input v-model="notes"></el-input>
+                    <el-button type="primary" icon="el-icon-plus" circle @click="notes_class.push(notes)"></el-button>
+                    <el-button type="primary" icon="el-icon-s-promotion" circle @click="changeTags('notes')"></el-button>
+                </div>
+                <ul>
+                    <li>
+                        <div>序号</div>
+                        <div>内容</div>
+                        <div>操作</div>
+                    </li>
+                    <li v-for="(item, index) in notes_class" :key="index">
+                        <div>{{ index }}</div>
+                        <div>{{ item }}</div>
+                        <div><el-button type="danger" icon="el-icon-delete" circle @click="notes_class.splice(index, 1)"></el-button></div>
+                    </li>
+                </ul>
+            </div>
+        </UserCard>
         <!-- 技能标签 -->
         <UserCard>
             <i class="iconfont iconyingyongzhongxin" slot="icon" style="margin-left: 4px;"></i>
@@ -104,7 +129,9 @@ export default {
             tag: '',
             tags: [], 
             skill: '',
-            skill_tags: []
+            skill_tags: [],
+            notes: '',
+            notes_class: []
         }
     },
     mounted () {
@@ -130,6 +157,10 @@ export default {
                 for ( let prop in JSON.parse(result.data.data.skill_tags) ) {
                     this.skill_tags.push(JSON.parse(result.data.data.skill_tags)[prop])
                 }
+                this.notes_class = []
+                for ( let prop in JSON.parse(result.data.data.notes_class) ) {
+                    this.notes_class.push(JSON.parse(result.data.data.notes_class)[prop])
+                }
             }
         },
         async changeNotice () {
@@ -141,7 +172,7 @@ export default {
         },
         async changeTags ( type ) {
             let tags = {}
-            let arr = type == 'skill' ? this.skill_tags : type == 'article' ? this.tags : this.sentences
+            let arr = type == 'skill' ? this.skill_tags : type == 'article' ? this.tags : type == 'notes' ? this.notes_class : this.sentences
             for ( let prop in arr ) {
                 tags[prop] = arr[prop]
             }

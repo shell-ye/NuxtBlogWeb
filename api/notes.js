@@ -8,13 +8,14 @@ export const getNoteList = () => {
 }
 
 // 添加笔记
-export const addNote = ( user_id, title, content, html_content ) => {
+export const addNote = ( user_id, title, notes_class, content, html_content ) => {
     return request({
         url: '/notes/add',
         method: 'POST',
         data: {
             user_id,
             title,
+            notes_class,
             content,
             html_content
         }
@@ -32,7 +33,7 @@ export const searchNote = id => {
 }
 
 // 更新笔记
-export const updateNote = ( user_id, id, title, content, html_content ) => {
+export const updateNote = ( user_id, id, title, notes_class, content, html_content ) => {
     return request({
         url: '/notes/update',
         method: 'POST',
@@ -40,6 +41,7 @@ export const updateNote = ( user_id, id, title, content, html_content ) => {
             user_id, 
             id, 
             title,
+            notes_class,
             content, 
             html_content
         }

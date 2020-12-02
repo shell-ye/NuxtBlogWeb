@@ -7,6 +7,12 @@
                     <label>笔记标题：</label>
                     <el-input v-model="note.title"></el-input>
                 </div>
+                <div class="row">
+                    <label>笔记分类：</label>
+                    <el-select v-model="note.notes_class" placeholder="请选择">
+                        <el-option v-for="item in notes_class" :key="item" :label="item" :value="item"></el-option>
+                    </el-select>
+                </div>
                 <no-ssr><mavon-editor :toolbars="markdownOption" v-model="note.content" @change="changeData" /></no-ssr>
                 <div class="btn-lsit">
                     <el-button type="primary" @click="submit">发布</el-button>
@@ -32,8 +38,10 @@ export default {
     data () {
         return {
             type: 'write',
+            notes_class: [],
             note: {
                 title: '',
+                notes_class: '',
                 content: '',
                 html_content: ''
             },
@@ -78,6 +86,7 @@ export default {
         }
     },
     mounted () {
+        this.notes_class = this.webside.notes_class
         if ( this.$route.query.id ) {
             this.type = 'change'
             this.search()
@@ -115,7 +124,7 @@ export default {
             this.clearDialog = false
         },
         async submit () {
-            let result = this.type == 'write' ? await addNote( this.userData.id, this.note.title, this.note.content, this.note.html_content ) : await updateNote( this.userData.id, this.$route.query.id, this.note.title, this.note.content, this.note.html_content )
+            let result = this.type == 'write' ? await addNote( this.userData.id, this.note.title, this.note.notes_class, this.note.content, this.note.html_content ) : await updateNote( this.userData.id, this.$route.query.id, this.note.title, this.note.notes_class, this.note.content, this.note.html_content )
             if ( result.data.code == 200 ) { this.$message({message: '添加成功'}) }
         }
     }

@@ -1,7 +1,8 @@
 <template>
     <div class="note-card">
         <nuxt-link tag="div" :to="{path: `/notes/${ note.id }`}" class="img">
-            <img src="@/assets/img/nuxt.jpg" alt="" v-if="note.title == 'Nuxt'">
+            <img src="@/assets/img/nuxt.jpg" alt="" v-if="note.notes_class == 'nuxt'">
+            <img src="@/assets/img/webpack.jpg" alt="" v-if="note.notes_class == 'webpack'">
         </nuxt-link>
         <div class="content">
             <nuxt-link tag="p" :to="{path: `/notes/${ note.id }`}" class="title">{{ note.title }}</nuxt-link>

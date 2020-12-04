@@ -10,6 +10,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '夏叶，夏叶博客，夏叶的技术博客' },
+      { name: 'baidu-site-verification', content: 'code-sEPR2F4FM9' }
       // { "http-equiv": "Content-Security-Policy", content: "upgrade-insecure-requests" }
     ],
     link: [

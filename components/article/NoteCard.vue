@@ -1,8 +1,7 @@
 <template>
     <div class="note-card">
         <nuxt-link tag="div" :to="{path: `/notes/${ note.id }`}" class="img">
-            <img src="@/assets/img/nuxt.jpg" alt="" v-if="note.notes_class == 'nuxt'">
-            <img src="@/assets/img/webpack.jpg" alt="" v-if="note.notes_class == 'webpack'">
+            <img :src="imgUrl" alt="">
         </nuxt-link>
         <div class="content">
             <nuxt-link tag="p" :to="{path: `/notes/${ note.id }`}" class="title">{{ note.title }}</nuxt-link>
@@ -19,7 +18,12 @@
 <script>
 export default {
     name: 'NoteCard',
-    props: ['note']
+    props: ['note'],
+    computed: {
+        imgUrl () {
+            return `${ process.env.AXIOS_URL }/images/webImgCard/${ this.note.notes_class }.jpg`
+        }
+    }
 }
 </script>
 

@@ -9,18 +9,7 @@
         }"
     >
         <nuxt-link tag="div" :to="{path: `/article/${ article.id }`}" class="img">
-            <img src="@/assets/img/git.jpg" :alt="article.article_img" v-if="article.article_img == 'Git'">
-            <img src="@/assets/img/vue.jpg" :alt="article.article_img" v-if="article.article_img == 'Vue'">
-            <img src="@/assets/img/nodejs.jpg" :alt="article.article_img" v-if="article.article_img == 'Node'">
-            <img src="@/assets/img/nuxt.jpg" :alt="article.article_img" v-if="article.article_img == 'Nuxt'">
-            <img src="@/assets/img/html.jpg" :alt="article.article_img" v-if="article.article_img == 'HTML+CSS'">
-            <img src="@/assets/img/js.jpg" :alt="article.article_img" v-if="article.article_img == 'Javascript'">
-            <img src="@/assets/img/windows.jpg" :alt="article.article_img" v-if="article.article_img == 'Windows'">
-            <img src="@/assets/img/element_ui.jpg" :alt="article.article_img" v-if="article.article_img == 'ElementUI'">
-            <img src="@/assets/img/scss.jpg" :alt="article.article_img" v-if="article.article_img == 'Scss'">
-            <img src="@/assets/img/less.jpg" :alt="article.article_img" v-if="article.article_img == 'Less'">
-            <img src="@/assets/img/big-data.jpg" :alt="article.article_img" v-if="article.article_img == '代理爬虫'">
-            <img src="@/assets/img/weixinMiniProgram.jpg" :alt="article.article_img" v-if="article.article_img == 'WeiXinMiniProgram'">
+            <img :src="imgUrl" alt="">
         </nuxt-link>
         <div class="context">
             <nuxt-link tag="p" :to="{path: `/article/${ article.id }`}" class="title">{{ article.title }}</nuxt-link>
@@ -41,7 +30,25 @@
 
 <script>
 export default {
-    props: ['article', 'index', 'shape']
+    props: ['article', 'index', 'shape'],
+    mounted () {
+        console.log(this.article, this.article.article_img)
+    },
+    computed: {
+        imgUrl () {
+            if ( this.article.article_img ) {
+                if ( this.article.article_img == 'HTML+CSS' ) {
+                    return `${ process.env.AXIOS_URL }/images/webImgCard/html.jpg`
+                } else if ( this.article.article_img == '代理爬虫' ) {
+                    return `${ process.env.AXIOS_URL }/images/webImgCard/big-data.jpg`
+                } else {
+                    console.log(1, this.article.article_img)
+                    let img = this.article.article_img.toLowerCase()
+                    return `${ process.env.AXIOS_URL }/images/webImgCard/${ img }.jpg`
+                }
+            }
+        }
+    }
 }
 </script>
 

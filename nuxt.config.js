@@ -19,6 +19,9 @@ export default {
     script: [{
         src: '/js/prism.js',
         ssr: true
+    }, {
+        src: '/js/baidu-seo.js',
+        ssr: true
     }]
   },
 

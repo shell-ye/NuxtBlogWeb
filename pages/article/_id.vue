@@ -4,7 +4,7 @@
 		<section class="container note-content white-card">
 			<div class="head" v-if="article && article.title">
 				<p v-if="tags && tags.length">
-					<router-link v-for="(item, index) in tags" :key="index" tag="span" :to="{ path: '/categories', query: { article_tags: item} }" class="tags-3">{{ item | articleTag }}</router-link>
+					<router-link v-for="(item, index) in tags" :key="index" tag="span" :to="{ path: '/categories', query: { class: item} }" class="tags-3">{{ item | articleTag }}</router-link>
 				</p>
 				<p class="class"><i class="iconfont iconmark"></i>{{ article.skill_tag }}</p>
 			</div>
@@ -39,16 +39,19 @@ export default {
 	data () {
 		return {
 			article_show: false,
-			article: {},
-			tags: [],
 			catalog: {},
 			likedBool: false
 		}
 	},
 	async asyncData ({ params }) {
 		let result = await article_search( 1, params.id )
+		let tags = []
+		for ( let prop in JSON.parse(result.data.data.article_tags) ) {
+			tags.push(JSON.parse(result.data.data.article_tags)[prop])
+		}
 		return {
-			article: result.data.data
+			article: result.data.data,
+			tags
 		}
 	},
 	head () {

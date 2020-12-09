@@ -108,6 +108,7 @@ export default {
             let result = await searchNote(this.$route.query.id)
             if ( result.data.code == 200 ) {
                 this.note.title = result.data.data.title
+                this.note.notes_class = result.data.data.notes_class
                 this.note.content = result.data.data.content
                 this.note.html_content = result.data.data.html_content
             }

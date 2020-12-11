@@ -19,12 +19,18 @@
 </template>
 
 <script>
+import bus from '@/bus'
 export default {
     data () {
         return {
             reward_dia: false,
             pay_type: 'alipay'
         }
+    },
+    mounted () {
+        bus.$on('reward', () => {
+            this.reward_dia = true
+        })
     }
 }
 </script>

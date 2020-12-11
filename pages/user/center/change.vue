@@ -41,7 +41,7 @@
                     <el-button type="primary" @click="upLoadUserHead">上传</el-button>
                 </div>
                 <div class="btn-list">
-                    <el-button type="primary" @click="submitHandler('submit')">添加</el-button>
+                    <el-button type="primary" @click="submitHandler('submit')">提交</el-button>
                     <el-button type="primary" @click="submitHandler('reset')">重置</el-button>
                 </div>
             </div>

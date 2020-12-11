@@ -44,6 +44,12 @@ export default {
             article: []
         }
     },
+    mounted () {
+        if ( this.$route.query.key ) {
+            this.article_key = this.$route.query.key
+            this.search_bool = true
+        }
+    },
     components: {
         ImgCard
     },

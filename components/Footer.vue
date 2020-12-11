@@ -5,16 +5,13 @@
                 The blog has been running for {{ running_time }} <i class="my-face">ღゝ◡╹)ノ♡</i>
             </span>
             <span>
-                Copyright © 2020 | Powered By xiaye
+                Copyright © 2020 | Powered By xiaye | version: v1.3.2
             </span>
             <span>
-                version: v1.3.2
+                <a href="http://beian.miit.gov.cn" target="_black">赣ICP备2020013780号-1</a>
             </span>
         </p>
         <div class="bg">
-            <!-- <img src="@/assets/img/footer_clode.png" alt="">
-            <img src="@/assets/img/footer_mountain.png" alt="">
-            <img src="@/assets/img/footer_tree.png" alt=""> -->
             <div class="mountain"></div>
             <div class="tree"></div>
             <div class="clode"></div>
@@ -77,11 +74,14 @@ export default {
         justify-content: flex-end;
         align-items: center;
         line-height: 24px;
-        span {
+        span, a {
             font-family: Merriweather,"Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif!important;
         }
         i {
             margin: 0 4px;
+        }
+        a {
+            color: #888;
         }
     }
     .bg {

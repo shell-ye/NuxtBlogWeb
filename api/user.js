@@ -1,8 +1,11 @@
 import request from './index'
 
-export const getToken = () => {
+export const getToken = email => {
     return request({
         url: '/user/token',
+        params: {
+            email
+        }
     })
 }
 

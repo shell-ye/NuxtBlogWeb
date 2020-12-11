@@ -3,13 +3,14 @@
 		<Nav v-show="nav_foot_show"></Nav>	
 		<Nuxt />
 		<Footer v-show="nav_foot_show && foot_show"></Footer>
-		<el-backtop></el-backtop>
+		<SideBar></SideBar>
 	</main>
 </template>
 
 <script>
 import Nav from './../components/Nav'
 import Footer from './../components/Footer'
+import SideBar from './../components/SideBar'
 export default {
 	name: 'layout',
 	data () {
@@ -25,7 +26,8 @@ export default {
 	},
 	components: {
 		Nav, 
-		Footer
+		Footer,
+		SideBar
 	},
 	watch: {
 		$route () {

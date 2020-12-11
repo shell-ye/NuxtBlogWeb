@@ -75,7 +75,12 @@ export default {
 		if ( this.$store.state.webside.userData.id ) {
 			let result = await article_user_like( 2, this.$store.state.webside.userData.id, this.article.id )
 			this.likedBool = result.data.code == 200 && result.data.data.length == 1 || false
+			bus.$emit('articleLiked', this.likedBool)
 		}
+
+		bus.$on('articleLike', () => {
+			this.likedHandler()
+		})
 	},
 	computed: {
 		...mapState({
@@ -85,6 +90,9 @@ export default {
 	watch: {
 		$route () {
 			this.article_show = false
+		},
+		likedBool () {
+			bus.$emit('articleLiked', this.likedBool)
 		}
 	},
 	components: {

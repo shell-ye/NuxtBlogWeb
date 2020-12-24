@@ -9,12 +9,13 @@
                 <li><nuxt-link to="/" tag="a"><i class="iconfont iconfangzi"></i>首页</nuxt-link></li>
                 <li><nuxt-link :to="{name: 'search'}" tag="a"><i class="el-icon-search"></i>搜索</nuxt-link></li>
                 <li><nuxt-link :to="{name: 'categories'}" tag="a"><i class="iconfont iconshuben"></i>文章分类</nuxt-link></li>
-                <li><nuxt-link to="/notes" tag="a"><i class="iconfont iconbi"></i>学习笔记</nuxt-link></li>
+                <li><nuxt-link to="/notes" tag="a"><i class="iconfont iconjiaochengx"></i>学习笔记</nuxt-link></li>
                 <li><nuxt-link :to="{name: 'friends'}" tag="a"><i class="iconfont iconlianjie1"></i>友情链接</nuxt-link></li>
+                <li><nuxt-link to="/message" tag="a"><i class="iconfont iconbi"></i>留言</nuxt-link></li>
                 <li><nuxt-link :to="{name: 'author'}" tag="a"><i class="iconfont iconzuozhe"></i>关于我</nuxt-link></li>
                 <li v-if="!this.userData || !this.userData.email"><nuxt-link to="/login" tag="a"><i class="iconfont iconzuozhe-"></i>登录</nuxt-link></li>
                 <li v-if="this.userData && this.userData.email" class="user">
-                    <nuxt-link to="/user/center" tag="a">
+                    <nuxt-link to="/user/info" tag="a">
                         <img :src="userData.head_img" alt="" v-if="userData.head_img">
                         <img src="@/assets/img/default_head_img.png" alt="" v-else>
                         <span>{{ userData.name }}</span>

@@ -3,7 +3,7 @@
 		<Nav v-show="nav_foot_show"></Nav>	
 		<Nuxt />
 		<Footer v-show="nav_foot_show && foot_show"></Footer>
-		<SideBar></SideBar>
+		<SideBar v-if="$route.path != '/login'"></SideBar>
 	</main>
 </template>
 

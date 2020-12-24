@@ -6,7 +6,7 @@
 export default {
     middleware ({ route, redirect }) {
         if ( route.path == '/user/center' ) {
-            redirect('/user/center/info')
+            redirect('/user/center/change')
         }
     }
 }

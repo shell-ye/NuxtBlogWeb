@@ -122,11 +122,16 @@ export default {
                 border-bottom: 1px solid #ddd;
                 box-sizing: border-box;
                 padding: 0 10px;
+                &:first-child {
+                    i {
+                        margin-right: 4px;
+                    }
+                }
                 div {
                     flex: 1;
                     button {
                         i {
-                            margin: 0;
+                            margin-right: 0;
                         }
                     }
                 }

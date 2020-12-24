@@ -14,35 +14,38 @@
                         <i class="el-icon-caret-bottom"></i>
                     </nuxt-link>
                     <div class="webside-panel" :class="{close: !userInfoDropdown}">
-                        <nuxt-link tag="li" to="/user/center/info"><i class="iconfont iconyingyongzhongxin"></i>账号中心</nuxt-link>
-                        <nuxt-link tag="li" to="/user/center/change"><i class="iconfont iconlianjie1" v-if="userData.admin == 1"></i>修改信息</nuxt-link>
+                        <nuxt-link tag="li" to="/user/center/change"><i class="iconfont iconlianjie1"></i>修改信息</nuxt-link>
                     </div>
-                    <nuxt-link tag="li" to="/user/article" @click.native="articleDropdown = !articleDropdown" :class="{open: articleDropdown}">
-                        <i class="iconfont iconshuben" v-if="userData.admin == 1"></i>
+                    <nuxt-link tag="li" to="/user/info"><i class="iconfont iconyingyongzhongxin"></i>账号中心</nuxt-link>
+                    <!-- <nuxt-link tag="li" to="/user/message"><i class="iconfont iconbi"></i>网站留言</nuxt-link> -->
+
+                    <!-- 管理员 -->
+                    <nuxt-link tag="li" to="/user/article" @click.native="articleDropdown = !articleDropdown" :class="{open: articleDropdown}" v-if="userData.admin == 1">
+                        <i class="iconfont iconshuben"></i>
                         文章管理
                         <i class="el-icon-caret-bottom"></i>
                     </nuxt-link>
-                    <div class="webside-panel" :class="{close: !articleDropdown}">
-                        <nuxt-link tag="li" to="/user/article/list"><i class="iconfont iconliebiao" v-if="userData.admin == 1"></i>文章列表</nuxt-link>
-                        <nuxt-link tag="li" to="/user/article/publish"><i class="iconfont iconbi" v-if="userData.admin == 1"></i>发布文章</nuxt-link>
+                    <div class="webside-panel" :class="{close: !articleDropdown}" v-if="userData.admin == 1">
+                        <nuxt-link tag="li" to="/user/article/list"><i class="iconfont iconliebiao"></i>文章列表</nuxt-link>
+                        <nuxt-link tag="li" to="/user/article/publish"><i class="iconfont iconbi"></i>发布文章</nuxt-link>
                     </div>
-                    <nuxt-link tag="li" to="/user/notes" @click.native="notesDropdown = !notesDropdown" :class="{open: notesDropdown}">
-                        <i class="iconfont iconshiwuzhongxin_zhuce" v-if="userData.admin == 1"></i>
+                    <nuxt-link tag="li" to="/user/notes" @click.native="notesDropdown = !notesDropdown" :class="{open: notesDropdown}" v-if="userData.admin == 1">
+                        <i class="iconfont iconshiwuzhongxin_zhuce"></i>
                         笔记管理
                         <i class="el-icon-caret-bottom"></i>
                     </nuxt-link>
-                    <div class="webside-panel" :class="{close: !notesDropdown}">
-                        <nuxt-link tag="li" to="/user/notes/list"><i class="iconfont iconliebiao" v-if="userData.admin == 1"></i>笔记列表</nuxt-link>
-                        <nuxt-link tag="li" to="/user/notes/publish"><i class="iconfont iconbi" v-if="userData.admin == 1"></i>发布笔记</nuxt-link>
+                    <div class="webside-panel" :class="{close: !notesDropdown}" v-if="userData.admin == 1">
+                        <nuxt-link tag="li" to="/user/notes/list"><i class="iconfont iconliebiao"></i>笔记列表</nuxt-link>
+                        <nuxt-link tag="li" to="/user/notes/publish"><i class="iconfont iconbi"></i>发布笔记</nuxt-link>
                     </div>
-                    <nuxt-link tag="li" to="/user/webside" @click.native="websideDropdowm = !websideDropdowm" :class="{open: websideDropdowm}">
-                        <i class="iconfont iconwangzhan" v-if="userData.admin == 1"></i>
+                    <nuxt-link tag="li" to="/user/webside" @click.native="websideDropdowm = !websideDropdowm" :class="{open: websideDropdowm}" v-if="userData.admin == 1">
+                        <i class="iconfont iconwangzhan"></i>
                         网站管理
                         <i class="el-icon-caret-bottom"></i>
                     </nuxt-link>
-                    <div class="webside-panel" :class="{close: !websideDropdowm}">
-                        <nuxt-link tag="li" to="/user/webside/info"><i class="iconfont iconyingyongzhongxin" v-if="userData.admin == 1"></i>网站信息</nuxt-link>
-                        <nuxt-link tag="li" to="/user/webside/friends"><i class="iconfont iconlianjie1" v-if="userData.admin == 1"></i>友情链接</nuxt-link>
+                    <div class="webside-panel" :class="{close: !websideDropdowm}" v-if="userData.admin == 1">
+                        <nuxt-link tag="li" to="/user/webside/info"><i class="iconfont iconyingyongzhongxin"></i>网站信息</nuxt-link>
+                        <nuxt-link tag="li" to="/user/webside/friends"><i class="iconfont iconlianjie1"></i>友情链接</nuxt-link>
                     </div>
                 </ul>
             </div>

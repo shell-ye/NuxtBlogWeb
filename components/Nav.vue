@@ -124,7 +124,6 @@ export default {
     methods: {
         async logout () {
             this.$store.commit( 'webside/setUserData', {} )
-            this.$store.commit( 'webside/setToken', '' )
             this.$store.commit( 'setToken', '' )
             this.$cookies.remove('token')
             if ( window.location.href.indexOf('/user') != -1 ) { this.$router.push('/') }

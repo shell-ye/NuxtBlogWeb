@@ -137,7 +137,7 @@ export default {
                     bilibili: '',
                 }
             } else if ( type == 'submit' ) {
-                let result = await update_user_info(this.$store.state.webside.token, this.userData.id, this.user.name, this.user.saying, this.user.qq, this.user.git, this.user.weibo, this.user.bilibili)
+                let result = await update_user_info(this.$store.state.token, this.userData.id, this.user.name, this.user.saying, this.user.qq, this.user.git, this.user.weibo, this.user.bilibili)
                 if ( result.data.code == 200 ) {
                     this.$store.commit('webside/setUserData', result.data.data)
                     this.$message({ message: '更换成功'})

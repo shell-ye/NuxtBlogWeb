@@ -115,7 +115,7 @@ export default {
                 if ( !upload.files[0] ) { return this.$message({ type: 'error', message: '您还未选择图片'})}
                 let params = new FormData()
                 params.append( 'head_img',upload.files[0] )
-                params.append( 'token',this.$store.state.webside.token )
+                params.append( 'token',this.$store.state.token )
                 let file = await await uploadFriendHead( params )
                 if ( file.data.code == 200 ) {
                     let result = await uploadFriendLink( this.userData.id, this.friend_link.select_classes, this.friend_link.name, this.friend_link.remarks, this.friend_link.href, file.data.headFileName )

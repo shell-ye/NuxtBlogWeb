@@ -1,5 +1,6 @@
 import request from './index'
 
+// 获取token
 export const getToken = email => {
     return request({
         url: '/user/token',
@@ -9,6 +10,7 @@ export const getToken = email => {
     })
 }
 
+// 发送邮件
 export const sendEmail = ( email ) => {
     return request({
         url: '/user/register/email',
@@ -19,6 +21,7 @@ export const sendEmail = ( email ) => {
     })
 }
 
+// 注册
 export const user_register = ( email,emailms,password ) => {
     return request({
         url: '/user/register',
@@ -31,6 +34,7 @@ export const user_register = ( email,emailms,password ) => {
     })
 }
 
+// 登录
 export const user_login = ( email,password ) => {
     return request({
         url: '/user/login',
@@ -42,6 +46,7 @@ export const user_login = ( email,password ) => {
     })
 }
 
+// 获取用户信息
 export const user_info = token => {
     return request({
         url: '/user/info',
@@ -51,12 +56,14 @@ export const user_info = token => {
     })
 }
 
+// 退出登录
 export const log_out = () => {
     return request({
         url: '/user/logout'
     })
 }
 
+// 上传头像
 export const upload_head_img = ( params, email ) => {
     return request({
         url: '/user/upload/heads?email=' + email,
@@ -65,6 +72,7 @@ export const upload_head_img = ( params, email ) => {
     })
 }
 
+// 修改用户信息
 export const update_user_info = ( token, user_id, name, saying, qq, git, weibo, bilibili ) => {
     return request({
         url: '/user/update',
@@ -78,6 +86,33 @@ export const update_user_info = ( token, user_id, name, saying, qq, git, weibo, 
             git,
             weibo,
             bilibili
+        }
+    })
+}
+
+// 修改留言
+export const userChangeMessage = ( token, type, message_id, message ) => {
+    return request({
+        url: '/user/change-message',
+        method: 'POST',
+        data: {
+            token,
+            type,
+            message_id,
+            message
+        }
+    })
+}
+
+// 删除留言
+export const userDeleteMessage = ( token, type, message_id ) => {
+    return request({
+        url: '/user/delete-message',
+        method: 'POST',
+        data: {
+            token,
+            type,
+            message_id
         }
     })
 }

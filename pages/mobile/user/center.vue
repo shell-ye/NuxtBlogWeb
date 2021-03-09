@@ -80,7 +80,7 @@ export default {
             }
         },
         async submit () {
-            let result = await update_user_info(this.$store.state.webside.token, this.userData.id, this.user.name, this.user.saying, this.user.qq, this.user.git, this.user.weibo, this.user.bilibili)
+            let result = await update_user_info(this.$store.state.token, this.userData.id, this.user.name, this.user.saying, this.user.qq, this.user.git, this.user.weibo, this.user.bilibili)
             if ( result.data.code == 200 ) {
                 this.$store.commit('webside/setUserData', result.data.data)
                 this.$message({ message: '更换成功'})
@@ -89,7 +89,7 @@ export default {
         async change ( e ) {
             let params = new FormData()
             params.append( 'head_img', e.target.files[0] )
-            params.append( 'token', this.$store.state.webside.token )
+            params.append( 'token', this.$store.state.token )
             let result = await upload_head_img( params, this.userData.email )
             if ( result.data.code == 200 ) {
                 this.$store.commit('webside/setUserData', result.data.data)

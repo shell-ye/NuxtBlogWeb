@@ -74,7 +74,7 @@ const request = ({
 				// store.commit('webside/logout')
 				// let result = await getToken()
 				// if ( result.data.code == 200 ) {
-				// 	store.commit('webside/setToken', result.data.data)
+				// 	store.commit('setToken', result.data.data)
 				// 	setCookie('token', result.data.data)
 				// 	if ( !store.state.webside.isMobile ) {
 				// 		window.location.href = '/#/login'

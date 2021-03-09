@@ -5,6 +5,8 @@
             :visible.sync="show"
             :close-on-click-modal="false"
             v-if="show"
+            :width="width"
+            @before-close="cancel"
         >
             <div slot="footer" class="dialog-footer">
                 <slot></slot>
@@ -32,6 +34,10 @@ export default {
         },
         show: {
             default: true
+        },
+        width: {
+            type: String,
+            default: '600px'
         }
     },
     methods: {

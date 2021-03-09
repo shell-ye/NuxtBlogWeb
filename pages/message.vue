@@ -49,7 +49,7 @@
             <div class="form">
                 <div class="user">
                     <DownLineInput v-model="user.name" placeholder="昵称（必填）"></DownLineInput>
-                    <DownLineInput v-model="user.identification" placeholder="身份(不填写默认游客哦)"></DownLineInput>
+                    <DownLineInput v-model="user.identification" placeholder="头衔(不填写默认游客哦)"></DownLineInput>
                     <ColorSelect @select="selectColor" placeholder="请选择身份颜色"></ColorSelect>
                 </div>
                 <div class="text">
@@ -137,13 +137,13 @@ export default {
                 : await submitMessage( 2, data.user_id, data.username, data.identification, data.identification_color, data.message, this.base.id, this.base.user_id, this.base.username, this.base.head_img.split('/')[this.base.head_img.split('/').length - 1], this.base.identification, this.base.identification_color )
                 if ( result.data.code == 200 ) {
                     this.$message({type: 'success', message: '感谢你的留言'})
-                    this.getMessageListHamdler()
+                    this.getMessageListHandler()
                     this.user.message = ''
                 }
             }
         },
         async getMessageListHandler () {
-            let result = await getMessageList(2, this.messageList.pageIndex)
+            let result = await getMessageList(2, this.messageList.pageIndex, this.messageList.pageSize)
             if ( result.data.code == 200 ) {
                 result.data.data.rows.forEach(item => {
                     item.head_img = process.env.AXIOS_URL + '/images/userHeadImg/' + item.head_img
@@ -232,7 +232,7 @@ export default {
                             background: $elementBlue;
                         }
                         span.yellow {
-                            background: #ffa51e;
+                            background: $MessageYellow;
                         }
                     }
                 }

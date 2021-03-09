@@ -114,7 +114,7 @@ export default {
                         message: '登录成功'
                     })
                     this.$store.commit('webside/setUserData',result.data.data)
-                    this.$store.commit('webside/setToken', result.data.token)
+                    this.$store.commit('setToken', result.data.token)
                     this.$cookies.set('token', result.data.token)
                     this.$router.go(-1)
                 }

@@ -27,8 +27,8 @@ time, mark, audio, video button, textarea {
 	padding: 0;
 	border: 0;
     font: inherit;
-    font-family: hl;
-    /* font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif; */
+    /* font-family: hl; */
+    font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 
 code * {

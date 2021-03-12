@@ -85,7 +85,8 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    transpile: [/^element-ui/]
+    transpile: [/^element-ui/],
+    extractCSS: { allChunks: true }
   },
   env: {
     // AXIOS_URL: 'http://127.0.0.1:3002'

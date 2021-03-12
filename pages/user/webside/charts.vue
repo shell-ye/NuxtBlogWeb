@@ -26,20 +26,15 @@ export default {
     methods: {
         async getUserVisitData () {
             let result = await getAccessLog( this.userData.id )
-            if ( result.data.code == 200 && result.data.data.length ) {
+            if ( result.data.code == 200 ) {
                 let days = []
                 let count = []
-                result.data.data.forEach(item => {
-                    days.push(item.ymd)
-                    count.push(item.num)
-                })
-                let length = 30 - days.length
-                if ( days.length < 30 ) {
-                    for ( let i = 0; i < length; i++ ) {
-                        days.unshift('2021-03-' + i)
-                        count.unshift(0)
-                    }
+
+                for ( let prop in result.data.data ) {
+                    days.unshift( prop )
+                    count.unshift( result.data.data[prop] )
                 }
+
                 let options = {
                     tooltip: {
                         trigger: 'axis',

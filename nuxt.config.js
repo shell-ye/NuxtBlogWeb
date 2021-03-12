@@ -46,11 +46,12 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/filter',
-    '@/plugins/axios'
-    // {
-    //   src: "@/plugins/vue-swiper.js", 
-    //   ssr: false
-    // }
+    '@/plugins/axios',
+    // '~/plugins/echarts'
+    {
+      src: "@/plugins/echarts.js", 
+      ssr: false
+    }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

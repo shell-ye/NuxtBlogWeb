@@ -11,6 +11,7 @@
 import Nav from './../components/Nav'
 import Footer from './../components/Footer'
 import SideBar from './../components/SideBar'
+import { subAccessLog } from '@/api/web'
 export default {
 	name: 'layout',
 	data () {
@@ -23,6 +24,9 @@ export default {
 		this.changeShow()
 		this.checkMobile()
         require('@/assets/js/colorLine.js')
+
+		// 访问日志
+		subAccessLog()
 	},
 	components: {
 		Nav, 

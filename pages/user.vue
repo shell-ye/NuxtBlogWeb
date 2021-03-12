@@ -44,6 +44,7 @@
                         <i class="el-icon-caret-bottom"></i>
                     </nuxt-link>
                     <div class="webside-panel" :class="{close: !websideDropdowm}" v-if="userData.admin == 1">
+                        <nuxt-link tag="li" to="/user/webside/charts"><i class="iconfont iconshuju"></i>网站数据</nuxt-link>
                         <nuxt-link tag="li" to="/user/webside/info"><i class="iconfont iconyingyongzhongxin"></i>网站信息</nuxt-link>
                         <nuxt-link tag="li" to="/user/webside/friends"><i class="iconfont iconlianjie1"></i>友情链接</nuxt-link>
                     </div>

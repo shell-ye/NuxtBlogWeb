@@ -63,7 +63,10 @@ const request = ({
         }
     })
     result.then(res => {
-        if ( res.data.code != 200 ) {
+        let ignoreList = [
+            'http://myip.ipip.net'
+        ]
+        if ( ignoreList.indexOf(res.config.url) == -1 && res.data.code != 200 ) {
             Message({
 				type: 'error',
 				message: res.data.msg,

@@ -117,7 +117,6 @@
 
 <script>
 import { submitNotice, webInit, submitTags } from '@/api/web'
-import UserCard from '@/components/User/UserCard'
 import { mapState } from 'vuex'
 export default {
     name: 'UserWebsideInfo',

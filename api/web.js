@@ -99,3 +99,35 @@ export const submitTags = ( user_id, type, tags ) => {
         }
     })
 }
+
+// 获取 ip 信息
+export const getIPInfo = () => {
+    return request({
+        url: 'http://myip.ipip.net'
+    })
+}
+
+// 访问日志
+export const subAccessLog = async () => {
+    let result = await getIPInfo()
+    // console.log(result.data.split('  ')[1].split('：')[1]) // 地址
+    // console.log(result.data.split('  ')[2]) // 运营商
+    // console.log(result.data.split(' ')[1].split('：')[1]) // ip
+    request({
+        url: '/accesslog',
+        params: {
+            ip: result.data.split(' ')[1].split('：')[1],
+            address: result.data.split('  ')[1].split('：')[1],
+            isp: result.data.split('  ')[2]
+        }
+    })
+}
+
+export const getAccessLog = user_id => {
+    return request({
+        url: '/manage/accesslog',
+        params: {
+            user_id
+        }
+    })
+} 

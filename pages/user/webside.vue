@@ -6,7 +6,7 @@
 export default {
     middleware ({ route, redirect }) {
         if ( route.path == '/user/webside' ) {
-            redirect('/user/webside/info')
+            redirect('/user/webside/charts')
         }
     }
 }

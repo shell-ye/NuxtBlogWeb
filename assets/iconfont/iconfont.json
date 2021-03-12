@@ -6,6 +6,20 @@
   "description": "个人博客",
   "glyphs": [
     {
+      "icon_id": "4349836",
+      "name": "浏览器",
+      "font_class": "liulanqi",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "17781447",
+      "name": "数据",
+      "font_class": "shuju",
+      "unicode": "e884",
+      "unicode_decimal": 59524
+    },
+    {
       "icon_id": "1129589",
       "name": "列表",
       "font_class": "liebiao",

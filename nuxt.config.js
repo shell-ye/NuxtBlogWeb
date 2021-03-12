@@ -33,7 +33,11 @@ export default {
     '~assets/css/element-ui.css',
     '~assets/css/markdown.css',
     '~assets/css/reset.css',
-    '~assets/iconfont/iconfont.css',
+    // '~assets/iconfont/iconfont.css',
+    {
+      src: '~assets/iconfont/iconfont.css',
+      ssr: false
+    }
   ],
   styleResources: {
     scss: [
@@ -86,7 +90,7 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     transpile: [/^element-ui/],
-    extractCSS: { allChunks: true }
+    extractCSS: true
   },
   env: {
     // AXIOS_URL: 'http://127.0.0.1:3002'

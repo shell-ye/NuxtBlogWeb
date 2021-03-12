@@ -31,7 +31,7 @@ export default {
         }
     },
     mounted () {
-        require('@/assets/js/Bubbles.js')
+        require('@/assets/js/bubbles.js')
         var typed = new Typed('.type', {
             showCursor: this.isMobile ? false : true,
             strings: this.saying, //输入内容, 支持html标签

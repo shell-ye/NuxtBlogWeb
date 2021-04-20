@@ -107,7 +107,7 @@ $height: 270px;
             width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
-            margin-top: 80px;
+            margin-top: 40px;
         }
     }
 }

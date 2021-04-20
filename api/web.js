@@ -1,4 +1,5 @@
 import request from './index'
+import axios from 'axios'
 
 // 初始数据
 export const init = () => {
@@ -102,9 +103,10 @@ export const submitTags = ( user_id, type, tags ) => {
 
 // 获取 ip 信息
 export const getIPInfo = () => {
-    return request({
-        url: 'http://myip.ipip.net'
-    })
+    // return request({
+    //     url: 'http://myip.ipip.net'
+    // })
+    return axios.get('http://myip.ipip.net')
 }
 
 // 访问日志

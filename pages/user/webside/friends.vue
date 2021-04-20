@@ -121,10 +121,7 @@ export default {
                     let result = await uploadFriendLink( this.userData.id, this.friend_link.select_classes, this.friend_link.name, this.friend_link.remarks, this.friend_link.href, file.data.headFileName )
                     if ( result.data.code == 200 ) {
                         await this.$store.dispatch('webside/getFriendLinks')
-                        this.$message({
-                            type: 'success',
-                            message: '上传成功'
-                        })
+                        this.$message('上传成功')
                     }
                 }
             }

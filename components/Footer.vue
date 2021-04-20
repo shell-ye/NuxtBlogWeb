@@ -5,7 +5,7 @@
                 The blog has been running for {{ running_time }} <i class="my-face">ღゝ◡╹)ノ♡</i>
             </span>
             <span>
-                Copyright © 2020 | Powered By xiaye | version: v1.3.2
+                Copyright © 2020 | Powered By xiaye | version: v1.3.3
             </span>
             <span>
                 <a href="http://beian.miit.gov.cn" target="_black">赣ICP备2020013780号-1</a>

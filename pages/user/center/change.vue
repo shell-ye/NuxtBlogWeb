@@ -4,6 +4,13 @@
             <i class="iconfont iconjurassic_role" slot="icon"></i>
             <div slot="body" class="info">
                 <div class="title">修改信息</div>
+                <div class="row heads">
+                    <label>头像:</label>
+                    <img src="@/assets/img/default_head_img.png" alt="" class="head-img" ref="head_img" v-if="!userData.head_img">
+                    <img :src="userData.head_img" alt="" class="head-img" ref="head_img" v-if="userData.head_img">
+                    <label class="head"><input type="file" ref="file" @input="selectHead($event)"></label>
+                    <label class="head upload" @click="upLoadUserHead">上传</label>
+                </div>
                 <div class="row">
                     <label>昵称:</label>
                     <DownLineInput v-model="user.name" placeholder="元芳，你叫啥"></DownLineInput>
@@ -27,18 +34,6 @@
                 <div class="row">
                     <label>B站空间:</label>
                     <DownLineInput v-model="user.bilibili" placeholder="小破站空间"></DownLineInput>
-                </div>
-                <div class="row upload-head">
-                    <label>上传头像：</label>
-                    <label class="head"><input type="file" id="user-head" @input="selectHead($event)"></label>
-                    <span>文件名只能含有一个点（'.'）哦~</span>
-                </div>
-                <div class="row head-info" v-if="file.size">
-                    <label>头像信息：</label>
-                    <span>图片名称: {{ file.name }}</span>
-                    <span>图片类型: {{ file.type }}</span>
-                    <span>图片大小: {{ (file.size / 1024).toFixed(2) }} kb</span>
-                    <el-button type="primary" @click="upLoadUserHead">上传</el-button>
                 </div>
                 <div class="btn-list">
                     <el-button type="primary" @click="submitHandler('submit')">提交</el-button>
@@ -64,12 +59,6 @@ export default {
                 git: '',
                 weibo: '',
                 bilibili: '',
-            },
-            file: {
-                success: false,
-                name: '',
-                size: '',
-                type: ''
             }
         }
     },
@@ -90,7 +79,7 @@ export default {
         this.user.bilibili = this.userData.bilibili
     },
     methods: {
-        selectHead (e) {
+        selectHead ( e ) {
             if ( e.target.files[0] ) {
                 if ( e.target.files[0].name.match(/\./g).length != 1 ) {
                     this.$message({
@@ -106,19 +95,25 @@ export default {
                     })
                     e.target.value = ''
                     return
+                } else {
+                    this.$refs.head_img.onload = () => {
+                        let rect = this.clacImgZoomParam(100, 100, this.$refs.head_img.offsetWidth, this.$refs.head_img.offsetHeight)
+                        this.$refs.head_img.width = rect.width
+                        this.$refs.head_img.height = rect.height
+                        this.$refs.head_img.style.marginTop = rect.top + 'px'
+                    }
+                    let reader = new FileReader()
+                    reader.onload = e => {
+                        this.$refs.head_img.src = e.target.result
+                    }
+                    reader.readAsDataURL(this.$refs.file.files[0])
                 }
-
-                this.file.success = true
-                this.file.name = e.target.files[0].name
-                this.file.size = e.target.files[0].size
-                this.file.type = e.target.files[0].type
             }
         },
         async upLoadUserHead () { 
-            if ( !this.file.name ) { return this.$message({ type: 'error', message: '您还未选择图片'})}
-            let upload = this.$refs.changeUserInfo.querySelector('#user-head')
+            if ( !this.$refs.file.files[0] ) { return this.$message({ type: 'error', message: '您还未选择图片'})}
             let params = new FormData()
-            params.append( 'head_img',upload.files[0] )
+            params.append( 'head_img', this.$refs.file.files[0] )
             let result = await upload_head_img( params, this.userData.email )
             if ( result.data.code == 200 ) {
                 this.$store.commit('webside/setUserData', result.data.data)
@@ -143,6 +138,26 @@ export default {
                     this.$message({ message: '更换成功'})
                 }
             }
+        },
+
+        // 改变图片尺寸
+        clacImgZoomParam ( maxWidth, maxHeight, width, height ) {
+            let param = { top: 0, left: 0, width: width, height: height }
+            if ( width > maxWidth || height > maxHeight ) {
+                let rateWidth = width / maxWidth
+                let rateHeight = height / maxHeight
+
+                if ( rateWidth > rateHeight ) {
+                    param.width = maxWidth
+                    param.height = Math.round( height / rateWidth )
+                } else {
+                    param.width = Math.round( width / rateHeight )
+                    param.height = maxHeight
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2)
+            param.top = Math.round((maxHeight - param.height) / 2)
+            return param
         }
     }
 }
@@ -182,12 +197,33 @@ export default {
                         opacity: 0;
                     }
                 }
+                label.upload {
+                    color: white;
+                    font-size: 14px;
+                    width: 88px;
+                    height: 36px;
+                    line-height: 36px;
+                    text-align: center;
+                    background: #409fff;
+                    border-radius: 4px;
+                    display: inline-block;
+                }
                 span {
                     margin-right: 100px;
                 }
                 div {
                     width: 700px;
                 }
+                img {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 4px;
+                    border: 1px dashed #999;
+                    margin-right: 10px;
+                }
+            }
+            div.row.heads {
+                align-items: flex-end!important;
             }
             div.btn-list {
                 width: 100%;

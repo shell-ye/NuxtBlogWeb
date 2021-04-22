@@ -31,9 +31,6 @@
 <script>
 export default {
     props: ['article', 'index', 'shape'],
-    mounted () {
-        console.log(this.article, this.article.article_img)
-    },
     computed: {
         imgUrl () {
             if ( this.article.article_img ) {
@@ -42,7 +39,6 @@ export default {
                 } else if ( this.article.article_img == '代理爬虫' ) {
                     return `${ process.env.AXIOS_URL }/images/webImgCard/big-data.jpg`
                 } else {
-                    console.log(1, this.article.article_img)
                     let img = this.article.article_img.toLowerCase()
                     return `${ process.env.AXIOS_URL }/images/webImgCard/${ img }.jpg`
                 }

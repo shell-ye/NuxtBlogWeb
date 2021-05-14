@@ -4,6 +4,7 @@
 		<Nuxt />
 		<Footer v-show="nav_foot_show && foot_show"></Footer>
 		<SideBar v-if="$route.path != '/login'"></SideBar>
+		<!-- <canvas id="fireworks" style="zindex: 99999999999;position:fixed;left:0;top:0;pointer-events:none;"></canvas> -->
 	</main>
 </template>
 

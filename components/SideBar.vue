@@ -3,7 +3,7 @@
         <ul>
             <!-- 打赏 点赞 -->
             <li v-show="$route.name == 'article-id' && !articleLiked" @click="like"><i class="iconfont iconzanpress"></i></li>
-            <li v-show="$route.name == 'article-id'" @click="reward"><i style="transform: translateY(-2px); font-size: 18px;">赏</i></li>
+            <li v-show="$route.name == 'article-id'" @click="reward"><i style="font-size: 18px;">赏</i></li>
 
             <!-- 快捷留言 -->
             <li @click="messageBool = !messageBool">

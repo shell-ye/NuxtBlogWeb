@@ -22,6 +22,12 @@ export default {
     }, {
         src: '/js/baidu-seo.js',
         ssr: true
+    }, {
+        src: '/js/anime.min.js',
+        ssr: true
+    }, {
+        src: '/js/fireworks.js',
+        ssr: true
     }]
   },
 

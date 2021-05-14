@@ -169,6 +169,7 @@ $height: 50px;
                 justify-content: center;
                 color: white;
                 position: relative;
+                font-weight: normal;
                 &:hover{
                     div.arrow{ display: block;}
                     div.list.notes{ height: calc( 4 * 40px );}
@@ -349,8 +350,17 @@ $height: 50px;
 
 #nav.nav_shadow{ 
     background: rgba(171, 171, 171, .3);
-    backdrop-filter: saturate(300%) blur(10px);
+    backdrop-filter: saturate(20%) blur(30px);
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2); 
+    div.pc {
+        ul {
+            li {
+                a {
+                    color: black;
+                }
+            }
+        }
+    }
 }
 
 // IE 不支持毛玻璃效果

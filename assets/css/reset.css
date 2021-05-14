@@ -3,9 +3,16 @@
    License: none (public domain)
 */
 
-@font-face {
+/* @font-face {
     font-family: 'hl';
     src: url(~@/assets/fonts/hl.ttf);
+    font-weight: normal;
+    font-style: normal;
+} */
+
+@font-face {
+    font-family: 'PingFang';
+    src: url(~@/assets/fonts/PingFang.woff2);
     font-weight: normal;
     font-style: normal;
 }
@@ -27,8 +34,8 @@ time, mark, audio, video button, textarea {
 	padding: 0;
 	border: 0;
     font: inherit;
-    /* font-family: hl; */
-    font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-family: PingFang;
+    /* font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif; */
 }
 
 code * {

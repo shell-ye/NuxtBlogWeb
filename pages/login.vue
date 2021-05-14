@@ -38,6 +38,9 @@
 
             <div class="redbg transitionTime" :class="{toleft: !loginBool}"></div>
         </section>
+
+        <!-- 返回首页 -->
+        <!-- <div class="return-index"></div> -->
     </article>
 </template>
 
@@ -209,6 +212,15 @@ export default {
             color: white;
             z-index: 1;
         }
+    }
+    // 返回首页
+    div.return-index {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translate(0, -50%);
+        display: flex;
+        justify-content: flex-start;
     }
 }
 .transitionTime{ transition: transform .6s ease-in-out;}

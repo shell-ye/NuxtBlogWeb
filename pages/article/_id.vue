@@ -30,7 +30,6 @@
 <script>
 import bus from '@/bus'
 import { mapState } from 'vuex'
-import { getStrCount } from '@/utils/index'
 import { article_search, article_like, article_user_like } from '@/api/article'
 import HeadBackground from '@/components/article/HeadBackground'
 import ImgDialog from '@/components/article/ImgDialog'

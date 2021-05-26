@@ -9,6 +9,7 @@
         <img src="@/assets/img/article_BG.jpg" alt="" v-if="type == 'article'">
         <img src="@/assets/img/friends_BG.jpg" alt="" v-if="type == 'friends'">
         <img src="@/assets/img/message_BG.jpg" alt="" v-if="type == 'message'">
+        <img src="@/assets/img/lab_BG.png" alt="" v-if="type == 'lab'">
     </div>
 </template>
 

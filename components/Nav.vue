@@ -10,6 +10,7 @@
                 <li><nuxt-link :to="{name: 'search'}" tag="a"><i class="el-icon-search"></i>搜索</nuxt-link></li>
                 <li><nuxt-link :to="{name: 'categories'}" tag="a"><i class="iconfont iconshuben"></i>文章分类</nuxt-link></li>
                 <li><nuxt-link to="/notes" tag="a"><i class="iconfont iconjiaochengx"></i>学习笔记</nuxt-link></li>
+                <li><nuxt-link to="/lab" tag="a"><i class="iconfont iconflask"></i>灵感实验室</nuxt-link></li>
                 <li><nuxt-link :to="{name: 'friends'}" tag="a"><i class="iconfont iconlianjie1"></i>友情链接</nuxt-link></li>
                 <li><nuxt-link to="/message" tag="a"><i class="iconfont iconbi"></i>留言</nuxt-link></li>
                 <li><nuxt-link :to="{name: 'author'}" tag="a"><i class="iconfont iconzuozhe"></i>关于我</nuxt-link></li>

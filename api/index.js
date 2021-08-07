@@ -1,6 +1,7 @@
+// 封装 ajax 请求
+
 import axios from 'axios'
 import { Message } from 'element-ui'
-import { getCookie } from './../utils/cookie'
 
 const instance = axios.create({
     baseURL: process.env.AXIOS_URL,
@@ -32,9 +33,6 @@ const request = ({
     withCredentials = true,
     token
 }) => {
-    if ( token ) {
-        console.log(document, getCookie('token'))
-    }
     let result = new Promise((resolve, reject) => {
         switch ( method ) {
             case 'POST':

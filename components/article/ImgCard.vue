@@ -9,7 +9,7 @@
         }"
     >
         <nuxt-link tag="div" :to="{path: `/article/${ article.id }`}" class="img">
-            <img :src="imgUrl" alt="">
+            <UIImage :src="imgUrl"></UIImage>
         </nuxt-link>
         <div class="context">
             <nuxt-link tag="p" :to="{path: `/article/${ article.id }`}" class="title">{{ article.title }}</nuxt-link>
@@ -30,6 +30,7 @@
 
 <script>
 import BASE_URL from '@/api/config'
+import UIImage from '@/components/UI/Image'
 export default {
     props: ['article', 'index', 'shape'],
     computed: {
@@ -45,6 +46,9 @@ export default {
                 }
             }
         }
+    },
+    components: {
+        UIImage
     }
 }
 </script>
@@ -73,7 +77,7 @@ $height: 270px;
         width: 400px;
         cursor: pointer;
         overflow: hidden;
-        img {
+        .el-image {
             width: 100%;
             height: 100%;
             transition: .4s;
@@ -126,7 +130,7 @@ $height: 270px;
         }
     }
     > div{ overflow: hidden;}
-    img{
+    .el-image{
         width: 100%;
         height: 218px;
         cursor: pointer;

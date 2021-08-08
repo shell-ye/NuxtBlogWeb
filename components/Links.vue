@@ -5,12 +5,13 @@
                 <div class="name">{{ data.name }}</div>
                 <div class="remarks">{{ data.remarks }}</div>
             </div>
-            <img :src="src" alt="">
+            <UIImage :src="src" :loading="false"></UIImage>
         </a>
     </div>
 </template>
 
 <script>
+import UIImage from '@/components/UI/Image'
 import BASE_URL from '@/api/config'
 export default {
     props: ['data'],
@@ -18,6 +19,9 @@ export default {
         src () {
             return BASE_URL + '/images/friendLinkImg/' + this.data.head_img
         }
+    },
+    components: {
+        UIImage
     }
 }
 </script>
@@ -61,7 +65,7 @@ export default {
                 transition: all .5s;
             }
         }
-        img {
+        .el-image {
             box-shadow: inset 0 0 10px #000;
             opacity: 1;
             transform: rotate(0deg);
@@ -97,7 +101,7 @@ export default {
                     border-top: 1px dashed $elementBlue;
                 }
             }
-            img {
+            .el-image {
                 transform: rotate(360deg);
             }
         }
@@ -107,10 +111,20 @@ export default {
     }
 }
 
-// IE 图片边框圆角 padding显示问题
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .link-block img { 
-        padding: 0!important;
+</style>
+
+<style lang="scss">
+.link-block{
+    .el-image {
+        img {
+            box-shadow: inset 0 0 10px #000;
+            opacity: 1;
+            transform: rotate(0deg);
+            transition: all ease 1s;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+        }
     }
 }
 </style>

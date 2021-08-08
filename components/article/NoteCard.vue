@@ -1,7 +1,7 @@
 <template>
     <div class="note-card">
         <nuxt-link tag="div" :to="{path: `/notes/${ note.id }`}" class="img">
-            <img :src="imgUrl" alt="">
+            <UIImage :src="imgUrl"></UIImage>
         </nuxt-link>
         <div class="content">
             <nuxt-link tag="p" :to="{path: `/notes/${ note.id }`}" class="title">{{ note.title }}</nuxt-link>
@@ -17,6 +17,7 @@
 
 <script>
 import BASE_URL from '@/api/config'
+import UIImage from '@/components/UI/Image'
 export default {
     name: 'NoteCard',
     props: ['note'],
@@ -24,6 +25,9 @@ export default {
         imgUrl () {
             return `${ BASE_URL }/images/webImgCard/${ this.note.notes_class }.jpg`
         }
+    },
+    components: {
+        UIImage
     }
 }
 </script>
@@ -46,7 +50,7 @@ export default {
         }
     }
     > div{ overflow: hidden;}
-    img{
+    .el-image{
         width: 100%;
         height: 218px;
         cursor: pointer;

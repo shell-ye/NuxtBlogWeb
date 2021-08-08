@@ -1,9 +1,4 @@
-// import Vue from 'vue'
-// import Element from 'element-ui'
-// import locale from 'element-ui/lib/locale/lang/en'
-
-// Vue.use(Element, { locale })
-
+// ElementUI 以及改造
 import Vue from 'vue'
 import { 
     Button,
@@ -19,11 +14,13 @@ import {
     Tooltip,
     Progress,
     Drawer,
-    Backtop
+    Backtop,
+    Image
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-const Mess = ({type,message,duration}) => {
+// 改造 Message
+const Mess = ({type, message, duration}) => {
     Message({
         type: type || 'success',
         message,
@@ -44,5 +41,6 @@ Vue.use(Tooltip);
 Vue.use(Progress);
 Vue.use(Drawer);
 Vue.use(Backtop);
+Vue.use(Image);
 Vue.component(Button.name, Button)
 Vue.prototype.$message = Mess

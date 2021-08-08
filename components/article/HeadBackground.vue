@@ -3,20 +3,35 @@
         message: type == 'message'
     }">
         <p class="animate__animated animate__fadeInUp">{{ text }}</p>
-        <img src="@/assets/img/notes_BG.jpg" alt="" v-if="type == 'notes'">
-        <img src="@/assets/img/categories_BG.jpg" alt="" v-if="type == 'categories'">
-        <img src="@/assets/img/author_BG.jpg" alt="" v-if="type == 'author'">
-        <img src="@/assets/img/article_BG.jpg" alt="" v-if="type == 'article'">
-        <img src="@/assets/img/friends_BG.jpg" alt="" v-if="type == 'friends'">
-        <img src="@/assets/img/message_BG.jpg" alt="" v-if="type == 'message'">
-        <img src="@/assets/img/lab_BG.png" alt="" v-if="type == 'lab'">
+        <img :src="imgList[type + '_BG']" alt="">
     </div>
 </template>
 
 <script>
+// 各种大图片
+import notes_BG from '../../assets/img/notes_BG.jpg'
+import categories_BG from '../../assets/img/categories_BG.jpg'
+import author_BG from '../../assets/img/author_BG.jpg'
+import article_BG from '../../assets/img/article_BG.jpg'
+import friends_BG from '../../assets/img/friends_BG.jpg'
+import message_BG from '../../assets/img/message_BG.jpg'
+import lab_BG from '../../assets/img/lab_BG.png'
 export default {
     name: 'headBackground',
-    props: ['type', 'text']
+    props: ['type', 'text'],
+    data () {
+        return {
+            imgList: {
+                notes_BG,
+                categories_BG,
+                author_BG,
+                article_BG,
+                friends_BG,
+                message_BG,
+                lab_BG
+            }
+        }
+    }
 }
 </script>
 

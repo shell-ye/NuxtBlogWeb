@@ -52,11 +52,11 @@
                 <p class="title">我的项目</p>
                 <div class="program">
                     <router-link tag="a" to="/">
-                        <img src="@/assets/img/color_logo.png" alt="" style="width: 84px; height: 84px;">
+                        <UIImage :src="BlogImage" class="blog" :loading="false"></UIImage>
                         <span>博客</span>
                     </router-link>
                     <a target="_black" href="https://www.apeyun.com">
-                        <img src="@/assets/img/apeyun.png" alt="" style="width: 56px; height: aoto;">
+                        <UIImage :src="ApeyunImage" class="apeyun" :loading="false"></UIImage>
                         <span>猿人云代理IP</span>
                     </a>
                 </div>
@@ -67,6 +67,9 @@
 
 <script>
 import HeadBackground from '@/components/article/HeadBackground'
+import UIImage from '@/components/UI/Image'
+import BlogImage from '@/assets/img/color_logo.png'
+import ApeyunImage from '@/assets/img/apeyun.png'
 export default {
     name: 'Author',
     head () {
@@ -93,11 +96,15 @@ export default {
                     {name: 'Webpack', percentage: 40, color: '#55A7DD'},
                     {name: 'Node', percentage: 60, color: '#6DA55F'}
                 ]
-            }
+            },
+
+            // 项目图片
+            BlogImage,
+            ApeyunImage
         }
     },
     components: {
-        HeadBackground
+        HeadBackground, UIImage
     }
 }
 </script>
@@ -187,8 +194,17 @@ export default {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    img {
+                    .el-image {
                         margin-bottom: 10px;
+                    }
+                    .blog {
+                        width: 84px; 
+                        height: 84px;
+                    }
+                    .apeyun {
+                        width: 56px; 
+                        height: aoto;
+                        margin-bottom: 12px;
                     }
                 }
             }

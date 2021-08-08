@@ -1,12 +1,13 @@
 <template>
     <div class="img-dialog" :class="{show: img_show}">
-        <img :src="src" alt="">
+        <UIImage :src="src"></UIImage>
         <i class="el-icon-close" @click="img_show = false"></i>
     </div>
 </template>
 
 <script>
 import bus from '@/bus'
+import UIImage from '@/components/UI/Image'
 export default {
     name: 'ImgDialog',
     data () {
@@ -14,6 +15,9 @@ export default {
             img_show: false,
             src: ''
         }
+    },
+    components: {
+        UIImage
     },
     mounted () {
         bus.$on('showImgDialog', data => {
@@ -40,7 +44,7 @@ export default {
     opacity: 0;
     pointer-events: none;
     z-index: 9999999;
-    img {
+    .el-image {
         max-width: 100vw;
         max-height: 100vh;
     }

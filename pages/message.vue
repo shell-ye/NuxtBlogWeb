@@ -8,7 +8,7 @@
             <!-- 基础留言 -->
             <div class="base" v-for="item in messageList.rows" :key="item.id">
                 <div class="info">
-                    <img :src="item.head_img" alt="">
+                    <UIImage :src="item.head_img" :loading="false"></UIImage>
                     <div class="text">
                         <p><span>{{ item.username }}</span><span :class="item.identification_color">{{ item.identification }}</span></p>
                         <p>{{ item.time }}</p>
@@ -20,7 +20,7 @@
                 <div v-if="item.child.length" class="replys">
                     <div class="content" v-for="reply in item.child" :key="reply.id">
                         <div class="info">
-                            <img :src="reply.head_img" alt="">
+                            <UIImage :src="reply.head_img" :loading="false"></UIImage>
                             <div class="text">
                                 <p><span>{{ reply.username }}</span><span :class="reply.identification_color">{{ reply.identification }}</span></p>
                                 <p>{{ reply.time }}</p>
@@ -41,7 +41,12 @@
             <div class="head">发表留言</div>
             <div class="reply" v-show="JSON.stringify(base) != '{}'">
                 <div>
-                    <span>回复 <img :src="base.head_img" alt=""> {{ base.username }}<em :class="base.identification_color">{{ base.identification }}</em> {{ base.time }} 的 留言</span>
+                    <span>回复 
+                        <UIImage :src="base.head_img" :loading="false"></UIImage>
+                        {{ base.username }}
+                        <em :class="base.identification_color">{{ base.identification }}</em> 
+                        {{ base.time }} 的 留言
+                    </span>
                     <span @click="base = {}" title="取消"><i class="el-icon-close"></i></span>
                 </div>
                 <div>{{ base.message }}</div>
@@ -70,6 +75,7 @@ import { dateFormat } from '@/utils'
 import { submitMessage, getMessageList } from '@/api/message'
 import DownLineInput from '@/components/Form/DownLineInput'
 import ColorSelect from '@/components/Form/ColorSelect'
+import UIImage from '@/components/UI/Image'
 import BASE_URL from '@/api/config'
 export default {
     name: 'Message',
@@ -104,7 +110,7 @@ export default {
         }
     },
     components: {
-        DownLineInput
+        DownLineInput, UIImage
     },
     computed: {
         ...mapState({
@@ -194,7 +200,7 @@ export default {
                 position: relative;
                 box-sizing: border-box;
                 padding: 0px 20px;
-                img {
+                .el-image {
                     width: 50px;
                     height: 50px;
                     border: 1px solid #f5f5f5;
@@ -346,9 +352,10 @@ export default {
                     text-indent: 2rem;
                     margin-top: 10px;
                 }
-                img {
+                .el-image {
                     width: 32px;
                     height: 32px;
+                    border-radius: 50%;
                 }
             }
         }

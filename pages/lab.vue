@@ -22,7 +22,7 @@
                     </ul>
                     <p>图片展示：</p>
                     <div class="image-display">
-                        <img :src="base_url + '/MusicPlayer/display/MusicPlayer.png'" alt="">
+                        <UIImage :src="base_url + '/MusicPlayer/display/MusicPlayer.png'" class="image-music-player"></UIImage>
                     </div>
                 </template>
                 <template v-if="index == 1">
@@ -43,11 +43,11 @@
                     </ul>
                     <p>图片展示：</p>
                     <div class="image-display">
-                        <img :src="base_url + '/zoosemy/display/login.png'" alt="">
-                        <img :src="base_url + '/zoosemy/display/musicplayer.png'" alt="">
+                        <UIImage :src="base_url + '/zoosemy/display/login.png'" class="image-zoosemy-login"></UIImage>
+                        <UIImage :src="base_url + '/zoosemy/display/musicplayer.png'" class="image-zoosemy-musicplayer"></UIImage>
                     </div>
                     <div class="image-display">
-                        <img :src="base_url + '/zoosemy/display/keyboard.png'" alt="">
+                        <UIImage :src="base_url + '/zoosemy/display/keyboard.png'"  class="image-zoosemy-keyboard"></UIImage>
                     </div>
                 </template>
             </div>
@@ -58,6 +58,7 @@
 <script>
 import BASE_URL from '@/api/config'
 import HeadBackground from '@/components/article/HeadBackground'
+import UIImage from '@/components/UI/Image'
 export default {
     name: 'Lab',
     data () {
@@ -73,7 +74,7 @@ export default {
         }
     },
     components: {
-        HeadBackground
+        HeadBackground, UIImage
     },
 }
 </script>
@@ -121,8 +122,20 @@ export default {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                img {
+                .el-image {
                     margin: 20px;
+                }
+                .image-music-player {
+                    width: 1160px;
+                    height: 565.5px;
+                }
+                .image-zoosemy-login, .image-zoosemy-musicplayer {
+                    width: 367px;
+                    height: 705px;
+                }
+                .image-zoosemy-keyboard {
+                    width: 980px;
+                    height: 636px;
                 }
             }
         }
@@ -134,6 +147,16 @@ export default {
                 }
             }
         }
+    }
+}
+</style>
+
+<style lang="scss">
+#lab {
+    .el-image {
+        margin: 20px;
+        min-width: 200px;
+        min-height: 200px;
     }
 }
 </style>

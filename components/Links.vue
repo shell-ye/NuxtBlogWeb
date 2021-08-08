@@ -11,11 +11,12 @@
 </template>
 
 <script>
+import BASE_URL from '@/api/config'
 export default {
     props: ['data'],
     computed: {
         src () {
-            return process.env.AXIOS_URL + '/images/friendLinkImg/' + this.data.head_img
+            return BASE_URL + '/images/friendLinkImg/' + this.data.head_img
         }
     }
 }

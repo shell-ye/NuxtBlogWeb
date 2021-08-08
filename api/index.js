@@ -2,9 +2,10 @@
 
 import axios from 'axios'
 import { Message } from 'element-ui'
+import BASE_URL from '@/api/config'
 
 const instance = axios.create({
-    baseURL: process.env.AXIOS_URL,
+    baseURL: BASE_URL,
     withCredentials: true,
     timeout: 3000
 })

@@ -62,6 +62,7 @@
 <script>
 import { mapState } from 'vuex'
 import UserCard from '@/components/User/UserCard'
+import BASE_URL from '@/api/config'
 import { uploadFriendLink, uploadFriendHead, friendLinks, delFriendLink } from '@/api/web'
 export default {
     name: 'friend-links-manage',
@@ -83,7 +84,7 @@ export default {
         }
     },
     mounted () {
-        this.baseUrl = process.env.AXIOS_URL
+        this.baseUrl = BASE_URL
         this.$store.dispatch('webside/getFriendLinks')
     },
     computed: {

@@ -70,6 +70,7 @@ import { dateFormat } from '@/utils'
 import { submitMessage, getMessageList } from '@/api/message'
 import DownLineInput from '@/components/Form/DownLineInput'
 import ColorSelect from '@/components/Form/ColorSelect'
+import BASE_URL from '@/api/config'
 export default {
     name: 'Message',
     data () {
@@ -146,13 +147,13 @@ export default {
             let result = await getMessageList(2, this.messageList.pageIndex, this.messageList.pageSize)
             if ( result.data.code == 200 ) {
                 result.data.data.rows.forEach(item => {
-                    item.head_img = process.env.AXIOS_URL + '/images/userHeadImg/' + item.head_img
+                    item.head_img = BASE_URL + '/images/userHeadImg/' + item.head_img
                     item.time =  dateFormat( new Date(item.time), 'yyyy-MM-dd' )
                     item.message = item.message.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
                     if ( item.child.length ) {
                         item.child.forEach(items => {
-                            items.head_img = process.env.AXIOS_URL + '/images/userHeadImg/' + items.head_img
-                            items.to_head_img = process.env.AXIOS_URL + '/images/userHeadImg/' + items.to_head_img
+                            items.head_img = BASE_URL + '/images/userHeadImg/' + items.head_img
+                            items.to_head_img = BASE_URL + '/images/userHeadImg/' + items.to_head_img
                             items.time =  dateFormat( new Date(item.time), 'yyyy-MM-dd' )
                             items.message = items.message.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
                         })

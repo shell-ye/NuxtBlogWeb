@@ -29,18 +29,19 @@
 </template>
 
 <script>
+import BASE_URL from '@/api/config'
 export default {
     props: ['article', 'index', 'shape'],
     computed: {
         imgUrl () {
             if ( this.article.article_img ) {
                 if ( this.article.article_img == 'HTML+CSS' ) {
-                    return `${ process.env.AXIOS_URL }/images/webImgCard/html.jpg`
+                    return `${ BASE_URL }/images/webImgCard/html.jpg`
                 } else if ( this.article.article_img == '代理爬虫' ) {
-                    return `${ process.env.AXIOS_URL }/images/webImgCard/big-data.jpg`
+                    return `${ BASE_URL }/images/webImgCard/big-data.jpg`
                 } else {
                     let img = this.article.article_img.toLowerCase()
-                    return `${ process.env.AXIOS_URL }/images/webImgCard/${ img }.jpg`
+                    return `${ BASE_URL }/images/webImgCard/${ img }.jpg`
                 }
             }
         }

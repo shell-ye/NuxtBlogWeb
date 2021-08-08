@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import axios from 'axios'
+import BASE_URL from '@/api/config'
 
 export default ({ store }) => {
     const instance = axios.create({
-        baseURL: process.env.AXIOS_URL,
+        baseURL: BASE_URL,
         withCredentials: true,
         timeout: 3000
     })

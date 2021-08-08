@@ -56,12 +56,13 @@
 </template>
 
 <script>
+import BASE_URL from '@/api/config'
 import HeadBackground from '@/components/article/HeadBackground'
 export default {
     name: 'Lab',
     data () {
         return {
-            base_url: process.env.AXIOS_URL + '/program',
+            base_url: BASE_URL + '/program',
             projectList: [{
                 title: '项目一：毛玻璃音乐播放器',
                 show: true

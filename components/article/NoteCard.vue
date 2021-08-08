@@ -16,12 +16,13 @@
 </template>
 
 <script>
+import BASE_URL from '@/api/config'
 export default {
     name: 'NoteCard',
     props: ['note'],
     computed: {
         imgUrl () {
-            return `${ process.env.AXIOS_URL }/images/webImgCard/${ this.note.notes_class }.jpg`
+            return `${ BASE_URL }/images/webImgCard/${ this.note.notes_class }.jpg`
         }
     }
 }

@@ -1,4 +1,5 @@
 import { init, friendLinks } from './../api/web'
+import BASE_URL from '@/api/config'
 
 export const state = () => ({
     token: '',
@@ -33,7 +34,7 @@ export const mutations = {
         state.userData = {}
     },
     setUserData ( state, data ) {        
-        if ( data && data.head_img ) { data.head_img = process.env.AXIOS_URL + '/images/userHeadImg/' + data.head_img }
+        if ( data && data.head_img ) { data.head_img = BASE_URL + '/images/userHeadImg/' + data.head_img }
         state.userData = data
     },
     setWebsideInfo ( state, data ) {

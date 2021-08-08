@@ -97,10 +97,5 @@ export default {
   build: {
     transpile: [/^element-ui/],
     extractCSS: true
-  },
-  env: {
-    // AXIOS_URL: 'http://127.0.0.1:3002'
-    // AXIOS_URL: process.env.NODE_ENV === 'production' ? 'http://121.196.34.102:3002' : 'http://127.0.0.1:3002'
-    AXIOS_URL: process.env.NODE_ENV === 'production' ? 'https://www.xiaye.cloud' : 'http://127.0.0.1:3002'
   }
 }

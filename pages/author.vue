@@ -51,13 +51,9 @@
             <div class="section">
                 <p class="title">我的项目</p>
                 <div class="program">
-                    <router-link tag="a" to="/">
-                        <UIImage :src="BlogImage" class="blog" :loading="false"></UIImage>
-                        <span>博客</span>
-                    </router-link>
-                    <a target="_black" href="https://www.apeyun.com">
-                        <UIImage :src="ApeyunImage" class="apeyun" :loading="false"></UIImage>
-                        <span>猿人云代理IP</span>
+                    <a v-for="item in programList" :key="item.name" target="_blank", :href="item.href">
+                        <UIImage :src="item.img" :class="item.className" :loading="false"></UIImage>
+                        <span>{{ item.name }}</span>
                     </a>
                 </div>
             </div>
@@ -70,6 +66,9 @@ import HeadBackground from '@/components/article/HeadBackground'
 import UIImage from '@/components/UI/Image'
 import BlogImage from '@/assets/img/color_logo.png'
 import ApeyunImage from '@/assets/img/apeyun.png'
+import CocoImage from '@/assets/img/coco.png'
+import HufengyunImage from '@/assets/img/hufengyun.png'
+import MaoyanImage from '@/assets/img/maoyan.jpg'
 export default {
     name: 'Author',
     head () {
@@ -92,15 +91,40 @@ export default {
                     {name: 'MySQL', percentage: 40, color: '#044970'}
                 ],
                 circle: [
-                    {name: 'Vue', percentage: 80, color: '#41B883'},
-                    {name: 'Webpack', percentage: 40, color: '#55A7DD'},
+                    {name: 'Vue', percentage: 80, color: '#42b983'},
+                    {name: 'React', percentage: 70, color: '#20232a'},
+                    {name: 'Webpack', percentage: 50, color: '#55A7DD'},
                     {name: 'Node', percentage: 60, color: '#6DA55F'}
                 ]
             },
 
-            // 项目图片
-            BlogImage,
-            ApeyunImage
+            // 项目
+            programList: [{
+                href: '/',
+                name: '博客',
+                img: BlogImage,
+                className: 'blog'
+            }, {
+                href: 'https://ape.vip/T-mSbvuu',
+                name: '猿人云',
+                img: ApeyunImage,
+                className: 'apeyun'
+            }, {
+                href: 'https://www.hufengyun.com',
+                name: '呼风云',
+                img: HufengyunImage,
+                className: "hufengyun"
+            }, {
+                href: 'http://coco.xiaye.top',
+                name: '后台管理系统',
+                img: CocoImage,
+                className: "coco"
+            }, {
+                href: 'http://maoyan.xiaye.top',
+                name: '猫眼',
+                img: MaoyanImage,
+                className: "maoyan"
+            }]
         }
     },
     components: {
@@ -196,6 +220,7 @@ export default {
                     align-items: center;
                     .el-image {
                         margin-bottom: 10px;
+                        background: white!important;
                     }
                     .blog {
                         width: 84px; 
@@ -205,6 +230,18 @@ export default {
                         width: 56px; 
                         height: aoto;
                         margin-bottom: 12px;
+                    }
+                    .coco {
+                        height: 72px;
+                        margin-top: 4px;
+                        margin-bottom: 18px;
+                    }
+                    .hufengyun {
+                        margin-bottom: 14px;
+                    }
+                    .maoyan {
+                        width: 108px;
+                        margin-bottom: 14px;
                     }
                 }
             }

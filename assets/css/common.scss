@@ -267,6 +267,15 @@ a{ outline: none!important;}
     100%{-webkit-transform:scale(1) rotate(0);}
 }
 
+@keyframes up_down_shake {
+    0% { transform: translateY(-3px)}
+    25% { transform: translateY(0px)}
+    50% { transform: translateY(3px)}
+    75% { transform: translateY(0px)}
+    100% { transform: translateY(-3px)}
+}
+
+
 // 移动端
 @media screen and (max-width: 1024px) {
     .container {

@@ -149,8 +149,8 @@ export default {
                 }
             }
         },
-        async getMessageListHandler () {
-            let result = await getMessageList(2, this.messageList.pageIndex, this.messageList.pageSize)
+        async getMessageListHandler (page) {
+            let result = await getMessageList(2, page || this.messageList.pageIndex, this.messageList.pageSize)
             if ( result.data.code == 200 ) {
                 result.data.data.rows.forEach(item => {
                     item.head_img = BASE_URL + '/images/userHeadImg/' + item.head_img

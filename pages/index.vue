@@ -120,6 +120,7 @@ export default {
 	display: flex;
 	justify-content: center;
 	padding-bottom: 20px;
+	padding-top: 100px;
 	.info {
 		> * {
 			width: 280px;

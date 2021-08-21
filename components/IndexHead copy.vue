@@ -2,13 +2,10 @@
     <div class="index-head">
         <img :src="`${ IMG_BED_API }/index_BG2.jpg`" alt="">
         <canvas id="header_canvas" width="1912" height="600" style="top: 0px; z-index: 0; position: absolute;"></canvas>
-        <div>
+        <p>
             <span class="title">夏叶博客</span>
-            <p>
-                <span class="type"></span>
-            </p>
-        </div>
-        <i class="el-icon-arrow-down" @click="iconClick"></i>
+            <span class="type"></span>
+        </p>
     </div>
 </template>
 
@@ -21,7 +18,6 @@ export default {
     data () {
         return {
             IMG_BED_API,
-            timer: '',
             options: {
                 currentPage: 0,
                 thresholdDistance: 100,
@@ -50,85 +46,45 @@ export default {
         ...mapState({
             'isMobile': state => state.webside.isMobile
         })
-    },
-    methods: {
-        // 点击向下图标进入内容
-        iconClick () {
-            this.timer = setInterval(() => {
-                if ( document.documentElement.scrollTop < document.documentElement.clientHeight ) {
-                    document.documentElement.scrollTop += 100
-                } else {
-                    clearInterval(this.timer)
-                }
-            }, 16)
-        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+// $height: 600px;
 .index-head {
-    height: 100vh;
+    height: 60vh;
     width: 100%;
     position: relative;
     overflow: hidden;
     canvas {
         height: 100%;
     }
-    img {
+    img, p {
         position: absolute;
         width: 100%;
         height: 100%;
         left: 0;
         top: 0;
     }
-    div {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
+    p {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        flex-direction: column;
         color: white;
         text-shadow: 4px 4px 8px #000;
-        height: 100%;
         .title {
             font-size: 48px;
             letter-spacing: 4px;
-            margin-bottom: 20px;
+            margin-bottom: -300px;
             width: 100%;
             text-align: center;
             display: inline-block;
         }
-        p {
-            justify-content: center;
-            align-items: center;
-            .type {
-                font-size: 24px;
-                display: flex;
-                display: inline-block;
-            }
-            .typed-cursor {
-                display: inline-block;
-                transform: translate(2px, -4px);
-            }
+        .type {
+            font-size: 24px;
         }
-    }
-    .el-icon-arrow-down {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        display: inline-block;
-        transform: translateX(-50%);
-        color: white;
-        font-size: 24px;
-        font-weight: bold;
-        cursor: pointer;
-        animation: up_down_shake 1s linear infinite;
     }
 }
 
@@ -144,12 +100,5 @@ export default {
             }
         }
     }
-}
-</style>
-
-<style>
-.index-head .typed-cursor {
-    display: inline-block;
-    transform: translate(2px, -4px);
 }
 </style>

@@ -3,6 +3,7 @@
         search: search_bool,
         text: text_bool
     }">
+        <img :src="`${ IMG_BED_API }/search_BG.jpg`" alt="">
         <section class="top">
             <div class="title">站内搜索</div>
             <div class="bar">
@@ -26,6 +27,7 @@
 import { article_list } from '@/api/article'
 import ImgCard from '@/components/article/ImgCard'
 import { mapState } from 'vuex'
+import { IMG_BED_API } from '@/config'
 export default {
     name: 'search',
     head () {
@@ -38,6 +40,7 @@ export default {
 	},
     data () {
         return {
+            IMG_BED_API,
             search_bool: false,
             text_bool: false,
             article_key: '',
@@ -80,7 +83,7 @@ export default {
 #search {
     width: 100%;
     height: 100vh;
-    background-image: url(~@/assets/img/search_BG.jpg);
+    // background-image: url(~@/assets/img/search_BG.jpg);
     background-size: cover;
     overflow: hidden;
     position: relative;
@@ -88,6 +91,14 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    > img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
     section.top {
         transition: 1s;
         div.title {

@@ -1,0 +1,1 @@
+export const IMG_BED_API = 'https://cdn.jsdelivr.net/gh/shell-ye/imgbad@main/blog'

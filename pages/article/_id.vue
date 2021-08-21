@@ -34,6 +34,7 @@ import { article_search, article_like, article_user_like } from '@/api/article'
 import HeadBackground from '@/components/article/HeadBackground'
 import ImgDialog from '@/components/article/ImgDialog'
 import Reward from '@/components/Reward'
+import { IMG_BED_API } from '@/config'
 export default {
 	data () {
 		return {
@@ -137,7 +138,10 @@ export default {
 				}
 			}
 		},
+
+		// 处理 HTML 内容
 		async changeHTMLStr () {
+			this.article.html_content = this.article.html_content.replace(/\/articleImg/g, IMG_BED_API)
 			this.article.html_content = this.article.html_content.replace(/<pre/g, '<pre class="line-numbers language-" data-line="1,3-5"')
 			this.article.html_content = this.article.html_content.replace(/<div class="hljs">/g, '')
 			this.article.html_content = this.article.html_content.replace(/\<\/code\>\<\/div>/g, '</code>')
@@ -149,6 +153,8 @@ export default {
 				clearTimeout( timer )
 			}, 1000)
 		},
+
+		// 点击打开大图渲染
 		contentClick ( e ) {
 			if ( e.target.nodeName == 'IMG' ) {
 				bus.$emit('showImgDialog', e.target.src)
